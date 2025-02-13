@@ -1,0 +1,83 @@
+
+<html> 
+<head> 
+<title>Jeg må ta en shit. Spiste for mye tomat suppe</title> 
+</head> 
+<body> 
+  <ul> 
+    <li></li> 
+    <li></li> 
+    <li></li> 
+    <li></li> 
+    <li></li> 
+    <li></li> 
+  </ul> 
+</body> 
+</html> 
+
+<style>
+    ul{ 
+      /* absolute gjør at koden starter alltid i midten av skjermen. Selv om du gjør skjermen mindre eller større en vanlig.
+      */
+      position: absolute; 
+      top:50%; 
+      left:50%; 
+      display: flex; 
+    } 
+    ul li{ 
+      /* List-style fjernet punktene som vanligvis kommer med li
+      */
+      list-style: none; 
+      width: 6px; 
+      height: 20px; 
+      background: #262626; 
+      margin: 0 4px; 
+      animation: animate 0.7s infinite alternate  
+      } 
+      /* Keyframes må brukes for å lage animation
+      */
+      @keyframes animate { 
+        0%{ 
+          transform: scaleY(1); 
+        } 
+         25%{ 
+          transform: scaleY(1); 
+        } 
+         50%{ 
+          transform: scaleY(1); 
+        } 
+         75%{ 
+          transform: scaleY(1); 
+        } 
+         100%{ 
+          transform: scaleY(3); 
+        } 
+      /* Nth-child er koden som skjer etter li. 
+      Starter med li(animation) også kommer li:nth-child(animation delay)
+      */
+
+      } 
+      ul li:nth-child(1){ 
+        animation-delay: .1s; 
+      } 
+        
+      ul li:nth-child(2){ 
+        animation-delay: .2s; 
+      } 
+        
+      ul li:nth-child(3){ 
+        animation-delay: .3s; 
+      } 
+        
+      ul li:nth-child(4){ 
+        animation-delay: .4s; 
+      } 
+        
+      ul li:nth-child(5){ 
+        animation-delay: .5s; 
+      } 
+        
+      ul li:nth-child(6){ 
+        animation-delay: .6s; 
+      }
+</style>

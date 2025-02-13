@@ -1,0 +1,26 @@
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 10px;
+  background: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: mymove 5s infinite alternate ease-in-out;
+}
+
+@keyframes mymove {
+  from { transform: translateX(-150px); }
+  to { transform: translateX(150px); }
+}
+</style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>
