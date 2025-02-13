@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Log</title>
+    <style>  
+    /*spurte chat om å fikse boxene mine sånn at de ble fine BTW JEG KAN GJØRE ALT TIL NORSK HVIS DERE VIL*/
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e3a5f;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #fish-feed {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 300px;
+        }
+
+        .fish-message {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            border-left: 5px solid white;
+        }
+
+        .fish-message img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        /* farger for rarity*/
+        .common { border-left-color: gray; }
+        .uncommon { border-left-color: green; }
+        .rare { border-left-color: blue; }
+        .epic { border-left-color: purple; }
+        .legendary { border-left-color: gold; }
+
+        /* skal fikse at knappen gjør noe etterhvert */
+        #catch-button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        #catch-button:hover {
+            background-color: #ffaa00;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Catch a Fish</h1>
+    <button id="catch-button">Catch</button>
+
+    <div id="fish-feed"></div>
+
+    <script>
+        const fishFeed = document.getElementById("fish-feed");
+        const catchButton = document.getElementById("catch-button");  //skal fikse en midlertidig knapp for å fiske opp fisker
+
+        // Rarity og farge til rarity
+        const rarityColors = {
+            "Common": "common",
+            "Uncommon": "uncommon",
+            "Rare": "rare",
+            "Epic": "epic",
+            "Legendary": "legendary"
+        };
+
+        // Fisk info (maks og minst vekt en fisk kan ha, hvilken rarity den har og navn) dere kommer til å like disse fiskene
+        const fishData = {
+            "Common": [
+                { name: "Flopper", minWeight: 0.5, maxWeight: 3 },
+                { name: "Spinning Fish", minWeight: 1, maxWeight: 4 }
+            ],
+            "Uncommon": [
+                { name: "Travis Fish", minWeight: 2, maxWeight: 6 },
+                { name: "Chad Fish", minWeight: 3, maxWeight: 7 }
+            ],
+            "Rare": [
+                { name: "Handsome SquidWard", minWeight: 5, maxWeight: 12 },
+                { name: "Gill", minWeight: 6, maxWeight: 14 }
+            ],
+            "Epic": [
+                { name: "WhaleShark", minWeight: 15, maxWeight: 50 },
+                { name: "Bruce", minWeight: 20, maxWeight: 60 }
+            ],
+            "Legendary": [
+                { name: "ThumpBack", minWeight: 70, maxWeight: 200 },
+                { name: "Oogway", minWeight: 80, maxWeight: 250 }
+            ]
+        };
+
+        // Fiske bilder (ikke ferdig)
+        const fishImages = {
+            "Flopper": "fish/flopper.jpg",
+            "Spinning Fish": "fish/spinningfish.jpg",
+            "Travis Fish": "fish/Travisfish.jpg",
+            "Chad Fish": "fish/chadfish",
+            "Handsome SquidWard": "fish/handsomesquidward",
+            "Gill": "fish/gill",
+            "WhaleShark": "fish/whaleshark",
+            "Bruce": "fish/bruce",
+            "ThumpBack": "fish/thumpback",
+            "Oogway": "fish/oogway"
+        };
+
+    </script>
+
+</body>
+</html>
