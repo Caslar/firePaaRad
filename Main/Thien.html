@@ -17,7 +17,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            /*Transform brukes for å endre utseende og plasseringen av et element, mens translate brukes for horisonale(x) og vertikalle(y) plasseringer. */
+            /*Transform brukes for å endre utseende og plasseringen av et element, 
+            mens translate brukes for horisonale(x) og vertikalle(y) plasseringer. 
+            -50% gjør at den tilpasser seg i midten, selv om du skulle forandre på skjermstørrelse.
+            Brukte 2 (-50%) for å sentrere det for både horisontalt og vertikalt forandringer.
+            */
 
             border-radius: 10px;
             /* Border raidus gjør hjørnene runde istedenfor det vanlige(skarpe) */
@@ -116,7 +120,7 @@
         <div class="box4"></div>
         <div class="box5"></div>
 
-    <!-- Container som begrenser baren -->
+
     <div class="bar-container">
         <div class="bar"></div>
     </div>
@@ -128,7 +132,7 @@
 
         let position = 0;
         const moveDistance = 50; // Hvor langt baren flytter seg per steg
-        const maxPosition = (container.clientWidth - bar.clientWidth) / 2; // Beregn maks bevegelse
+        const maxPosition = (container.clientWidth - bar.clientWidth) / 2; // Beregn maks bevegelse. ClientWidth tilpasser seg etter skjermstørrelse.
 
         function moveRandom() {
 
