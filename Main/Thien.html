@@ -17,22 +17,30 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            /*Transform brukes for å endre utseende og plasseringen av et element, mens translate brukes for horisonale(x) og vertikalle(y) plasseringer. */
+
             border-radius: 10px;
-            
-            /* Border raidus gjør hjørnene runde istedenfor det vanlige(skarpe)*/
+            /* Border raidus gjør hjørnene runde istedenfor det vanlige(skarpe) */
+
             display: flex;
-            justify-content: center;
-            align-items: center;
+            /*display: flex; aktiverer CSS Flexbox, som er en måte å ordne, justere og plassere elementer i en container. */
+
+            justify-content: center; /* horisonal sentrering */
+            align-items: center; /* vertical sentrering */
         }
 
-        /* Bevegelig bar */
+        /* Bar bevegelse */
         .bar {
             width: 100px;
             height: 10px;
             border-radius: 10px;
             background: red;
-            position: relative; /* Viktig: Relativ for å bevege seg inni containeren */
+            position: relative; 
+            /* Det er på sitt vanlige sted, men du kan flytte på det uten å påvirke andre elementer */
+
             transition: transform 0.5s ease-in-out;
+            /* transform gjør at animationen går ut over en periode. Ease and out gjør at baren starter sakte, er kjapp i midten og slutter sakte. */
+        
         }
 
 
