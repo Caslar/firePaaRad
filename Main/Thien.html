@@ -8,18 +8,32 @@
         <script src='main.js'></script>
         
         <style>
-            .bar {
-                width: 100px;
-          height: 10px;
-          background: red;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translateX(-50%);
-          transition: transform 0.5s ease-in-out;
-  /*translatex gjør at helle bevegelsen til baren er i midten av skjermen*/
+        /* Container som begrenser bevegelsen */
+        .bar-container {
+            width: 300px; /* Bestem hvor langt baren kan bevege seg */
+            height: 20px;
+            background: lightgray;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            
+            /* Border raidus gjør hjørnene runde istedenfor det vanlige(skarpe)*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-}
+        /* Bevegelig bar */
+        .bar {
+            width: 100px;
+            height: 10px;
+            border-radius: 10px;
+            background: red;
+            position: relative; /* Viktig: Relativ for å bevege seg inni containeren */
+            transition: transform 0.5s ease-in-out;
+        }
 
 
             .box{
@@ -27,7 +41,7 @@
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                height: 30%; /* Juster høyden */
+                height: 30%; 
                 background-color: blue;
                 margin: 0;
                 z-index: 0;
@@ -94,23 +108,38 @@
         <div class="box4"></div>
         <div class="box5"></div>
 
+    <!-- Container som begrenser baren -->
+    <div class="bar-container">
         <div class="bar"></div>
+    </div>
 
+    <script>
+        // const gjør at man ikke kan endre koden utenfor der koden er skrevet
+        const bar = document.querySelector('.bar');
+        const container = document.querySelector('.bar-container');
 
-        <script>
-             const box = document.querySelector('.bar');
-        let position = 0; // Holder styr på X-posisjon
-    
+        let position = 0;
+        const moveDistance = 50; // Hvor langt baren flytter seg per steg
+        const maxPosition = (container.clientWidth - bar.clientWidth) / 2; // Beregn maks bevegelse
+
         function moveRandom() {
-          const moveDistance = 100; // Hvor langt rektangelet flytter seg per steg
-          const direction = Math.random() < 0.5 ? -1 : 1; // Velger tilfeldig venstre (-1) eller høyre (1)
-          
-          position += moveDistance * direction; // Oppdater posisjon
-          
-          box.style.transform = `translateX(${position}px)`; // Flytter rektangelet
+
+            const direction = Math.random() < 0.5 ? -1 : 1; 
+            // Math random genererer et tall fra 0-1. (< 0.5 ?) sjekker om tallet er under 0.5, vis sant går baren ned med (-1) ellers går den opp med (+1)
+            let newPosition = position + moveDistance * direction;
+
+            // Koden gjør at baren ikke går utenfor containeren
+            if (newPosition < -maxPosition) {
+                newPosition = -maxPosition;
+            } else if (newPosition > maxPosition) {
+                newPosition = maxPosition;
+            }
+
+            position = newPosition; // Oppdater posisjon
+            bar.style.transform = `translateX(${position}px)`; // Flytter baren. TranslateX er nødvendig for å flytte baren horizonalt(vannrett)
         }
-    
-        // Flytt rektangelet til høyre eller venstre hvert 700ms
+
+        // Flytt baren tilfeldig hvert 700ms
         setInterval(moveRandom, 700);
         </script>
 
