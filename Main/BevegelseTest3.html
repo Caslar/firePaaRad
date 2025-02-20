@@ -1,0 +1,38 @@
+<html>
+    <head>
+      <style> 
+        div {
+          width: 100px;
+          height: 10px;
+          background: red;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: transform 0.5s ease-in-out;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <div></div>
+    
+      <script>
+        const box = document.querySelector('div');
+        let position = 0; // Holder styr på X-posisjon
+    
+        function moveRandom() {
+          const moveDistance = 100; // Hvor langt rektangelet flytter seg per steg
+          const direction = Math.random() < 0.5 ? -1 : 1; // Velger tilfeldig venstre (-1) eller høyre (1)
+          
+          position += moveDistance * direction; // Oppdater posisjon
+          
+          box.style.transform = `translateX(${position}px)`; // Flytter rektangelet
+        }
+    
+        // Flytt rektangelet til høyre eller venstre hvert 700ms
+        setInterval(moveRandom, 700);
+      </script>
+    
+    </body>
+    </html>

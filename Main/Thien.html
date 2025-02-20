@@ -9,22 +9,19 @@
         
         <style>
             .bar {
-  width: 100px;
-  height: 10px;
-  background: rgb(245, 242, 242);
-  position: absolute;
-  top: 50%;
-  left: 50%;
+                width: 100px;
+          height: 10px;
+          background: red;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: transform 0.5s ease-in-out;
   /*translatex gjør at helle bevegelsen til baren er i midten av skjermen*/
-  transform: translateX(-50%);
-  animation: mymove 5s infinite alternate ease-in-out;
-  /* infinitiv alternate ease-in-out gjør at baren kommer tilbake*/
+
 }
 
-@keyframes mymove {
-  from { transform: translateX(-150px); }
-  to { transform: translateX(150px); }
-}
+
             .box{
                 position: absolute;
                 bottom: 0;
@@ -96,6 +93,27 @@
         <div class="box3"></div>
         <div class="box4"></div>
         <div class="box5"></div>
+
         <div class="bar"></div>
+
+
+        <script>
+             const box = document.querySelector('.bar');
+        let position = 0; // Holder styr på X-posisjon
+    
+        function moveRandom() {
+          const moveDistance = 100; // Hvor langt rektangelet flytter seg per steg
+          const direction = Math.random() < 0.5 ? -1 : 1; // Velger tilfeldig venstre (-1) eller høyre (1)
+          
+          position += moveDistance * direction; // Oppdater posisjon
+          
+          box.style.transform = `translateX(${position}px)`; // Flytter rektangelet
+        }
+    
+        // Flytt rektangelet til høyre eller venstre hvert 700ms
+        setInterval(moveRandom, 700);
+        </script>
+
+
     </body>
 </html>
